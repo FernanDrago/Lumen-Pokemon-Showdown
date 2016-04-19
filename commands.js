@@ -282,6 +282,7 @@ var commands = exports.commands = {
 		// Check if the name already exists as a room or alias
 		if (Rooms.search(id)) return this.errorReply("The room '" + target + "' already exists.");
 		if (Rooms.global.addChatRoom(target)) {
+			hangman.reset(id);
 			if (cmd === 'makeprivatechatroom') {
 				var targetRoom = Rooms.search(target);
 				targetRoom.isPrivate = true;
